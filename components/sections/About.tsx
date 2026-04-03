@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function About() {
   const t = useTranslations('about');
@@ -22,9 +23,13 @@ export default function About() {
             <div className="relative">
               {/* Offset gold frame */}
               <div className="absolute inset-0 translate-x-3 translate-y-3 border-2 border-gold rounded-2xl" />
-              {/* Photo placeholder */}
-              <div className="relative w-72 h-96 bg-gray-300 rounded-2xl overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400" />
+              <div className="relative w-72 h-96 rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/lena-portrait.jpg"
+                  alt="Lena"
+                  fill
+                  className="object-cover object-top"
+                />
               </div>
             </div>
           </motion.div>

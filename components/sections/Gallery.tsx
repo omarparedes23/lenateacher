@@ -2,14 +2,16 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface GalleryItemProps {
+  src: string;
   label: string;
   className?: string;
   delay?: number;
 }
 
-function GalleryItem({ label, className = '', delay = 0 }: GalleryItemProps) {
+function GalleryItem({ src, label, className = '', delay = 0 }: GalleryItemProps) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -18,8 +20,13 @@ function GalleryItem({ label, className = '', delay = 0 }: GalleryItemProps) {
       viewport={{ once: true }}
       className={`relative overflow-hidden rounded-2xl group cursor-default ${className}`}
     >
-      {/* Placeholder image */}
-      <div className="w-full h-full bg-gray-700 min-h-[200px]" style={{ filter: 'saturate(0.7) sepia(0.15)' }} />
+      <Image
+        src={src}
+        alt={label}
+        fill
+        className="object-cover"
+        style={{ filter: 'saturate(0.7) sepia(0.15)' }}
+      />
 
       {/* Hover overlay */}
       <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/60 transition-colors duration-300 flex items-end p-4">
@@ -64,16 +71,16 @@ export default function Gallery() {
           }}
         >
           <div style={{ gridArea: 'cafe1' }}>
-            <GalleryItem label={loc.cafe1} className="h-56 md:h-72" delay={0} />
+            <GalleryItem src="/images/club-cafe-1.jpg" label={loc.cafe1} className="h-56 md:h-72" delay={0} />
           </div>
           <div style={{ gridArea: 'cafe2' }}>
-            <GalleryItem label={loc.cafe2} className="h-56 md:h-72" delay={0.1} />
+            <GalleryItem src="/images/club-cafe-2.jpg" label={loc.cafe2} className="h-56 md:h-72" delay={0.1} />
           </div>
           <div style={{ gridArea: 'outdoor' }}>
-            <GalleryItem label={loc.outdoor} className="h-56 md:h-72" delay={0.2} />
+            <GalleryItem src="/images/club-outdoor.jpg" label={loc.outdoor} className="h-56 md:h-72" delay={0.2} />
           </div>
           <div style={{ gridArea: 'group' }}>
-            <GalleryItem label={loc.group} className="h-56 md:h-72" delay={0.3} />
+            <GalleryItem src="/images/club-group.jpg" label={loc.group} className="h-56 md:h-72" delay={0.3} />
           </div>
         </div>
       </div>

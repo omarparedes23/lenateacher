@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 
 const CYRILLIC_LETTERS = ['Р', 'У', 'С', 'С', 'К', 'И', 'Й'];
 
@@ -41,9 +42,16 @@ export default function Hero() {
         />
       ))}
 
-      {/* Photo placeholder */}
-      <div className="absolute right-0 top-0 w-80 md:w-96 h-full bg-gray-200/10 hidden md:block">
-        <div className="w-full h-full bg-gradient-to-l from-gray-800/50 to-transparent" />
+      {/* Portrait photo */}
+      <div className="absolute right-0 top-0 w-80 md:w-96 h-full hidden md:block">
+        <Image
+          src="/images/lena-portrait.jpg"
+          alt="Lena"
+          fill
+          className="object-cover object-top"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-dark/20 to-dark" />
       </div>
 
       {/* Content */}
