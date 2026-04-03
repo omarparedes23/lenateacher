@@ -85,10 +85,13 @@ export default function WordOfDay({ locale }: WordOfDayProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="flex flex-col items-center gap-4"
+              className="flex flex-col items-center gap-4 overflow-hidden w-full"
             >
               <span className="text-6xl">{word.emoji}</span>
-              <p className="font-serif text-8xl md:text-9xl font-bold text-gold leading-none">
+              <p
+                className="font-serif text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold text-gold leading-none max-w-full overflow-hidden"
+                style={{ wordBreak: 'break-word' }}
+              >
                 {word.cyrillic}
               </p>
               <div className="flex flex-col gap-1 text-center">
