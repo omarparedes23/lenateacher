@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "services": "Servicios",
+    "club": "Club",
+    "about": "Sobre mí",
+    "pricing": "Precios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Habla ruso.\nVive Moscú.",
+    "subtitle": "Profesora certificada · 6 años de experiencia · Clases en español e inglés",
+    "ctaPrimary": "Escribir en Telegram",
+    "ctaSecondary": "Ver servicios"
+  },
+  "stats": {
+    "members": "Miembros activos",
+    "experience": "Años de experiencia",
+    "languages": "Idiomas de enseñanza"
+  },
+  "services": {
+    "title": "¿Qué ofrezco?",
+    "card1Title": "Clases personalizadas",
+    "card1Items": ["Individual o en grupo", "Online o presencial en Moscú", "Para viajes, trabajo o estudios", "Desde cero o mejora tu nivel"],
+    "card1Formats": "Formatos: 30 min · 1 hora · 1.5–2 horas (intensivo)",
+    "card2Title": "Preparación RVP/VNG",
+    "card2Items": ["Examen oficial de residencia en Rusia", "Cubre: ruso, historia y leyes", "Método estructurado y probado", "Para todos los niveles de partida"],
+    "card3Title": "Live Language Parties",
+    "card3Items": ["Clubes en ruso, inglés y español", "Grupos pequeños y dinámicos", "Nivel básico y avanzado", "Presencial en Moscú"]
+  },
+  "schedule": {
+    "title": "Únete al club",
+    "subtitle": "Sesiones presenciales en Moscú en grupos pequeños y dinámicos. Todos los niveles bienvenidos.",
+    "englishClub": "English Club",
+    "russianClub": "Russian Club",
+    "footnote": "Escríbeme para confirmar lugar y reservar tu plaza",
+    "cta": "Reservar plaza",
+    "levels": {
+      "basic": "Básico",
+      "intermediate": "Intermedio",
+      "advanced": "Avanzado"
+    },
+    "tbc": "Por confirmar"
+  },
+  "word": {
+    "title": "Palabra del día",
+    "subtitle": "Aprende una palabra nueva cada vez que visites",
+    "newWord": "Nueva palabra",
+    "phonetic": "Fonética",
+    "translation": "Traducción"
+  },
+  "gallery": {
+    "title": "Así nos encontramos",
+    "subtitle": "Momentos reales del club en Moscú",
+    "locations": {
+      "cafe1": "Moscú, cafetería · Московский",
+      "cafe2": "Moscú, sesión de club",
+      "group": "Moscú, grupo de estudio",
+      "outdoor": "Moscú, primavera · junto al río"
+    }
+  },
+  "about": {
+    "title": "Sobre Lena",
+    "body": "Soy Lena, profesora nativa de ruso de Moscú. Llevo más de 6 años ayudando a extranjeros de todo el mundo a descubrir el ruso — no solo como idioma, sino como una llave a una cultura increíble. Enseño en español e inglés, con paciencia, humor y mucho café. ☕ Soy certificada por el Centro Internacional de Ruso y creadora de The Клуб, una comunidad viva de más de 80 personas que se reúnen en Moscú para practicar idiomas y hacer amigos reales.",
+    "chips": ["Certificada 🏅", "Moscú 📍", "ES · EN · RU 🌐"]
+  },
+  "testimonials": {
+    "title": "Lo que dicen",
+    "items": [
+      {
+        "name": "Carlos M.",
+        "flag": "🇨🇴",
+        "country": "Colombia",
+        "text": "Empecé desde cero y en 3 meses ya podía pedir direcciones en el metro de Moscú. Lena hace que el ruso no dé miedo."
+      },
+      {
+        "name": "Sarah K.",
+        "flag": "🇺🇸",
+        "country": "United States",
+        "text": "The conversation club completely changed my experience in Moscow. I went from tourist to feeling at home."
+      },
+      {
+        "name": "Ana P.",
+        "flag": "🇲🇽",
+        "country": "México",
+        "text": "El club me quitó el miedo a hablar. Además conocí personas increíbles de todo el mundo. ¡Totalmente recomendado!"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Inversión",
+    "subtitle": "Escríbeme para un plan personalizado.",
+    "popular": "Más popular",
+    "cta": "Reservar en Telegram",
+    "card1Title": "Clase 30 min",
+    "card1Price": "desde $15",
+    "card1Ideal": "Ideal para: viajeros y personas ocupadas",
+    "card2Title": "Clase 1 hora",
+    "card2Price": "desde $25",
+    "card2Ideal": "Ideal para: aprendizaje estructurado",
+    "card3Title": "Live Language Party",
+    "card3Price": "desde $10",
+    "card3Ideal": "Ideal para: práctica oral y nuevos amigos"
+  },
+  "fab": {
+    "tooltip": "Escribir a Lena"
+  },
+  "footer": {
+    "tagline": "Profesora nativa de ruso en Moscú",
+    "telegram": "Telegram",
+    "channel": "The Клуб",
+    "closing": "До встречи!",
+    "closingTranslation": "¡Hasta pronto!",
+    "copyright": "© 2025 Lena"
+  },
+  "meta": {
+    "title": "Lena · Profesora de Ruso en Moscú | Lena",
+    "description": "Clases de ruso para hispanohablantes y angloparlantes en Moscú. Online y presencial. Certificada por el Centro Internacional de Ruso."
+  }
+}

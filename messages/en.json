@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "services": "Services",
+    "club": "Club",
+    "about": "About",
+    "pricing": "Pricing",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Speak Russian.\nLive Moscow.",
+    "subtitle": "Certified teacher · 6 years of experience · Lessons in Spanish & English",
+    "ctaPrimary": "Message on Telegram",
+    "ctaSecondary": "View services"
+  },
+  "stats": {
+    "members": "Active members",
+    "experience": "Years of experience",
+    "languages": "Teaching languages"
+  },
+  "services": {
+    "title": "What I offer",
+    "card1Title": "Personal Classes",
+    "card1Items": ["Individual or group", "Online or in-person in Moscow", "For travel, work or studies", "From scratch or improve your level"],
+    "card1Formats": "Formats: 30 min · 1 hour · 1.5–2 hours (intensive)",
+    "card2Title": "RVP/VNG Preparation",
+    "card2Items": ["Official Russian residency exam", "Covers: Russian, history & law", "Structured, proven method", "For all starting levels"],
+    "card3Title": "Live Language Parties",
+    "card3Items": ["Clubs in Russian, English & Spanish", "Small, dynamic groups", "Basic and advanced levels", "In-person in Moscow"]
+  },
+  "schedule": {
+    "title": "Join the club",
+    "subtitle": "In-person sessions in Moscow in small, dynamic groups. All levels welcome.",
+    "englishClub": "English Club",
+    "russianClub": "Russian Club",
+    "footnote": "Message me to confirm location and reserve your spot",
+    "cta": "Reserve a spot",
+    "levels": {
+      "basic": "Basic",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "tbc": "To be confirmed"
+  },
+  "word": {
+    "title": "Word of the Day",
+    "subtitle": "Learn a new word every time you visit",
+    "newWord": "New word",
+    "phonetic": "Phonetics",
+    "translation": "Translation"
+  },
+  "gallery": {
+    "title": "How we meet",
+    "subtitle": "Real moments from the club in Moscow",
+    "locations": {
+      "cafe1": "Moscow, café · Московский",
+      "cafe2": "Moscow, club session",
+      "group": "Moscow, study group",
+      "outdoor": "Moscow, spring · by the river"
+    }
+  },
+  "about": {
+    "title": "About Lena",
+    "body": "I'm Lena, a native Russian teacher from Moscow. For over 6 years I've been helping people from around the world discover Russian — not just as a language, but as a key to an incredible culture. I teach in Spanish and English, with patience, humor, and lots of coffee. ☕ I'm certified by the International Russian Language Centre and the creator of The Клуб, a living community of over 80 people who meet in Moscow to practice languages and make real friends.",
+    "chips": ["Certified 🏅", "Moscow 📍", "ES · EN · RU 🌐"]
+  },
+  "testimonials": {
+    "title": "What they say",
+    "items": [
+      {
+        "name": "Carlos M.",
+        "flag": "🇨🇴",
+        "country": "Colombia",
+        "text": "I started from scratch and in 3 months I could already ask for directions on the Moscow metro. Lena makes Russian feel less scary."
+      },
+      {
+        "name": "Sarah K.",
+        "flag": "🇺🇸",
+        "country": "United States",
+        "text": "The conversation club completely changed my experience in Moscow. I went from tourist to feeling at home."
+      },
+      {
+        "name": "Ana P.",
+        "flag": "🇲🇽",
+        "country": "México",
+        "text": "The club took away my fear of speaking. I also met amazing people from all over the world. Totally recommended!"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Investment",
+    "subtitle": "Message me for a personalized plan.",
+    "popular": "Most popular",
+    "cta": "Book on Telegram",
+    "card1Title": "30 min Class",
+    "card1Price": "from $15",
+    "card1Ideal": "Ideal for: travelers and busy people",
+    "card2Title": "1 hour Class",
+    "card2Price": "from $25",
+    "card2Ideal": "Ideal for: structured learning",
+    "card3Title": "Live Language Party",
+    "card3Price": "from $10",
+    "card3Ideal": "Ideal for: oral practice and new friends"
+  },
+  "fab": {
+    "tooltip": "Message Lena"
+  },
+  "footer": {
+    "tagline": "Native Russian teacher in Moscow",
+    "telegram": "Telegram",
+    "channel": "The Клуб",
+    "closing": "До встречи!",
+    "closingTranslation": "See you soon!",
+    "copyright": "© 2025 Lena"
+  },
+  "meta": {
+    "title": "Lena · Russian Teacher in Moscow | Lena",
+    "description": "Russian lessons for Spanish and English speakers in Moscow. Online and in-person. Certified by the International Russian Language Centre."
+  }
+}

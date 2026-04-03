@@ -1,0 +1,75 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+
+interface TestimonialItem {
+  name: string;
+  flag: string;
+  country: string;
+  text: string;
+}
+
+function getInitials(name: string): string {
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+}
+
+export default function Testimonials() {
+  const t = useTranslations('testimonials');
+  const items = t.raw('items') as TestimonialItem[];
+
+  return (
+    <section className="bg-dark py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          viewport={{ once: true }}
+          className="font-serif text-4xl md:text-5xl font-bold text-cream text-center mb-14"
+        >
+          {t('title')}
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {items.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.15, ease: 'easeOut' }}
+              viewport={{ once: true }}
+              className="relative bg-cream rounded-2xl p-8"
+            >
+              {/* Decorative quote mark */}
+              <span className="absolute top-4 left-6 font-serif text-8xl text-gold/20 leading-none select-none">
+                &ldquo;
+              </span>
+
+              <p className="relative z-10 text-dark/70 leading-relaxed mb-6 pt-6">
+                {item.text}
+              </p>
+
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-wine flex items-center justify-center text-cream font-bold text-sm flex-shrink-0">
+                  {getInitials(item.name)}
+                </div>
+                <div>
+                  <p className="font-semibold text-dark text-sm">{item.name}</p>
+                  <p className="text-muted text-xs">
+                    {item.flag} {item.country}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
