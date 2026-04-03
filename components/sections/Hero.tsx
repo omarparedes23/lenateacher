@@ -42,16 +42,19 @@ export default function Hero() {
         />
       ))}
 
-      {/* Portrait photo */}
-      <div className="absolute right-0 top-0 w-80 md:w-96 h-full hidden md:block">
+      {/* Portrait photo — mobile: full background, desktop: right panel */}
+      <div className="absolute inset-0 md:inset-auto md:right-0 md:top-0 md:w-96 md:h-full">
         <Image
           src="/images/lena-portrait.jpg"
           alt="Lena"
           fill
-          className="object-cover object-top"
+          className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-dark/20 to-dark" />
+        {/* Mobile overlay: dark so text is readable */}
+        <div className="absolute inset-0 bg-dark/60 md:hidden" />
+        {/* Desktop overlay: fade to left */}
+        <div className="absolute inset-0 hidden md:block bg-gradient-to-l from-transparent via-dark/20 to-dark" />
       </div>
 
       {/* Content */}
