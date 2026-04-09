@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { MotionConfig } from 'framer-motion';
 import type { Metadata } from 'next';
 import '../globals.css';
 
@@ -35,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
+    themeColor: '#1A1A1A',
     openGraph: {
       title: t('title'),
       description: t('description'),
@@ -69,16 +71,22 @@ export default async function LocaleLayout({ children, params }: Props) {
   };
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="dark" style={{ colorScheme: 'dark' }}>
       <head>
+        <meta name="theme-color" content="#1A1A1A" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className={`${playfair.variable} ${inter.variable} font-sans bg-dark text-cream`}>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <MotionConfig reducedMotion="user">
+            {children}
+          </MotionConfig>
         </NextIntlClientProvider>
       </body>
     </html>

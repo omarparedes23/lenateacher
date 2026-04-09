@@ -11,18 +11,21 @@ export default function Pricing() {
       title: t('card1Title'),
       price: t('card1Price'),
       ideal: t('card1Ideal'),
+      features: t.raw('card1Features') as string[],
       popular: false,
     },
     {
       title: t('card2Title'),
       price: t('card2Price'),
       ideal: t('card2Ideal'),
+      features: t.raw('card2Features') as string[],
       popular: true,
     },
     {
       title: t('card3Title'),
       price: t('card3Price'),
       ideal: t('card3Ideal'),
+      features: t.raw('card3Features') as string[],
       popular: false,
     },
   ];
@@ -67,6 +70,15 @@ export default function Pricing() {
               <p className="font-serif text-4xl font-bold text-gold">{card.price}</p>
               <p className="text-muted text-sm">{card.ideal}</p>
 
+              <ul className="flex flex-col gap-1.5">
+                {card.features.map((feature, j) => (
+                  <li key={j} className="flex items-start gap-2 text-dark/70 text-sm">
+                    <span className="text-gold mr-2">✦</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
               <a
                 href="https://t.me/UlyaLena"
                 target="_blank"
@@ -74,7 +86,7 @@ export default function Pricing() {
                 className={`mt-4 inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold transition-colors duration-200 ${
                   card.popular
                     ? 'bg-gold text-dark hover:bg-gold/90'
-                    : 'border border-gold text-gold hover:bg-gold/10'
+                    : 'border border-gold/40 text-gold hover:border-gold hover:bg-gold/10'
                 }`}
               >
                 {t('cta')}

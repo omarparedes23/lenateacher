@@ -99,10 +99,22 @@ export default function Hero() {
           </a>
           <a
             href="#services"
-            className="inline-flex items-center justify-center text-cream border border-cream/30 px-8 py-4 rounded-full hover:border-gold hover:text-gold transition-colors duration-200"
+            className="border border-gold/40 text-gold hover:border-gold hover:bg-gold/10 transition-colors duration-200 px-8 py-3 rounded-full font-semibold inline-flex items-center justify-center"
           >
             {t('ctaSecondary')} →
           </a>
+        </motion.div>
+
+        {/* Bounce chevron */}
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gold/60"
+          aria-hidden="true"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
         </motion.div>
       </div>
     </section>
@@ -125,7 +137,7 @@ function ParallaxLetter({
   return (
     <motion.span
       style={{ top: position.top, left: position.left, y }}
-      className="absolute font-serif text-8xl md:text-9xl text-cream/10 select-none pointer-events-none"
+      className="absolute font-serif text-8xl md:text-9xl text-cream/[0.18] select-none pointer-events-none"
     >
       {letter}
     </motion.span>

@@ -6,7 +6,9 @@ Landing page profesional para Lena (@UlyaLena), profesora nativa de ruso en Mosc
 
 - **Next.js 15** con App Router
 - **React 19**
+- **TypeScript 5**
 - **Tailwind CSS 3** con paleta personalizada (`tailwind.config.ts`)
+- **PostCSS** (`postcss.config.js`)
 - **Framer Motion 11** para todas las animaciones
 - **next-intl 3** para i18n ES/EN
 - **next/image** para todas las imágenes
@@ -53,6 +55,7 @@ messages/
   es.json                # Todos los strings en español
   en.json                # Todos los strings en inglés
 middleware.ts            # next-intl locale detection
+next-env.d.ts            # TypeScript declarations para Next.js
 ```
 
 ## Reglas absolutas

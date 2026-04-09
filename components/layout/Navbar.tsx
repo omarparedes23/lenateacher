@@ -64,6 +64,16 @@ export default function Navbar({ locale }: NavbarProps) {
           ))}
         </ul>
 
+        {/* Desktop CTA */}
+        <a
+          href="https://t.me/UlyaLena"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex items-center border border-gold/40 text-gold hover:border-gold hover:bg-gold/10 transition-colors duration-200 px-4 py-1.5 rounded-full text-sm font-semibold"
+        >
+          {t('cta')}
+        </a>
+
         {/* Locale switcher + hamburger */}
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1 text-sm">
@@ -137,6 +147,17 @@ export default function Navbar({ locale }: NavbarProps) {
                   </a>
                 </li>
               ))}
+              <li className="px-6 pt-3 pb-2">
+                <a
+                  href="https://t.me/UlyaLena"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center border border-gold/40 text-gold hover:border-gold hover:bg-gold/10 transition-colors duration-200 px-4 py-1.5 rounded-full text-sm font-semibold"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {t('cta')}
+                </a>
+              </li>
             </ul>
           </motion.div>
         )}

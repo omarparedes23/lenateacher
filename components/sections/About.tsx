@@ -22,7 +22,7 @@ export default function About() {
           >
             <div className="relative">
               {/* Offset gold frame */}
-              <div className="absolute inset-0 translate-x-3 translate-y-3 border-2 border-gold rounded-2xl" />
+              <div className="absolute inset-0 translate-x-4 translate-y-4 border-[3px] border-gold rounded-2xl" />
               <div className="relative w-72 h-96 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/lena-portrait.jpg"
@@ -58,6 +58,14 @@ export default function About() {
                 </span>
               ))}
             </div>
+            <a
+              href="https://t.me/UlyaLena"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-gold/40 text-gold hover:border-gold hover:bg-gold/10 transition-colors duration-200 px-8 py-3 rounded-full font-semibold inline-flex items-center justify-center"
+            >
+              {t('cta')}
+            </a>
           </motion.div>
         </div>
       </div>

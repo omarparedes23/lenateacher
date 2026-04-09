@@ -4,11 +4,12 @@
     "club": "Club",
     "about": "About",
     "pricing": "Pricing",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cta": "Join the club"
   },
   "hero": {
-    "title": "Lessons in\nRussian.",
-    "subtitle": "Certified teacher · 6 years of experience · Lessons in Spanish & English",
+    "title": "Lessons in Russian",
+    "subtitle": "Lessons of Russian in Spanish and English",
     "ctaPrimary": "Message on Telegram",
     "ctaSecondary": "View services"
   },
@@ -20,12 +21,12 @@
   "services": {
     "title": "What I offer",
     "card1Title": "Personal Classes",
-    "card1Items": ["Individual or group", "Online or in-person in Moscow", "For travel, work or studies", "From scratch or improve your level"],
+    "card1Items": ["Classes", "Work, studies, life in Moscow", "For all levels"],
     "card1Formats": "Formats: 30 min · 1 hour · 1.5–2 hours (intensive)",
     "card2Title": "RVP/VNG Preparation",
-    "card2Items": ["Official Russian residency exam", "Covers: Russian, history & law", "Structured, proven method", "For all starting levels"],
+    "card2Items": ["RVP/VNG Course", "Exam preparation", "Structured learning", "For all levels"],
     "card3Title": "Live Language Parties",
-    "card3Items": ["Clubs in Russian, English & Spanish", "Small, dynamic groups", "Basic and advanced levels", "In-person in Moscow"]
+    "card3Items": ["Conversation clubs", "3 Language Learning Parties", "3 languages to practice", "Small, dynamic groups", "In-person in Moscow", "For all levels"]
   },
   "schedule": {
     "title": "Join the club",
@@ -39,7 +40,20 @@
       "intermediate": "Intermediate",
       "advanced": "Advanced"
     },
-    "tbc": "To be confirmed"
+    "tbc": "To be confirmed",
+    "sessions": {
+      "english": [
+        { "day": "Tuesday", "time": "11:00", "location": "Московский", "level": "intermediate" },
+        { "day": "Tuesday", "time": "19:00", "location": "Московский", "level": "intermediate" },
+        { "day": "Saturday", "time": "11:30", "location": "Московский", "level": "basic" },
+        { "day": "Friday", "time": "11:30", "location": "Новаторская", "level": "intermediate" }
+      ],
+      "russian": [
+        { "day": "Wednesday", "time": "13:30", "location": "Лубянка", "level": "basic" },
+        { "day": "Friday", "time": "13:00", "location": "Новаторская", "level": "intermediate" },
+        { "day": "Sunday", "time": "14:00", "location": "Café Metod Freida", "level": "advanced" }
+      ]
+    }
   },
   "word": {
     "title": "Word of the Day",
@@ -61,7 +75,8 @@
   "about": {
     "title": "About Lena",
     "body": "I'm Lena, a native Russian teacher from Moscow. For over 6 years I've been helping people from around the world discover Russian — not just as a language, but as a key to an incredible culture. I teach in Spanish and English, with patience, humor, and lots of coffee. ☕ I'm certified by the International Russian Language Centre and the creator of The Клуб, a living community of over 80 people who meet in Moscow to practice languages and make real friends.",
-    "chips": ["Certified 🏅", "Moscow 📍", "ES · EN · RU 🌐"]
+    "chips": ["Certified 🏅", "Moscow 📍", "ES · EN · RU 🌐"],
+    "cta": "Message me on Telegram"
   },
   "testimonials": {
     "title": "What they say",
@@ -92,14 +107,17 @@
     "popular": "Most popular",
     "cta": "Book on Telegram",
     "card1Title": "30 min Class",
-    "card1Price": "from $15",
+    "card1Price": "",
     "card1Ideal": "Ideal for: travelers and busy people",
+    "card1Features": ["30 min focused lesson", "Conversation or grammar", "Online or in-person"],
     "card2Title": "1 hour Class",
-    "card2Price": "from $25",
+    "card2Price": "",
     "card2Ideal": "Ideal for: structured learning",
+    "card2Features": ["Full structured lesson", "Homework and follow-up", "Online or in-person", "Best value"],
     "card3Title": "Live Language Party",
-    "card3Price": "from $10",
-    "card3Ideal": "Ideal for: oral practice and new friends"
+    "card3Price": "",
+    "card3Ideal": "Ideal for: oral practice and new friends",
+    "card3Features": ["Small dynamic group", "Real conversation practice", "New friends in Moscow"]
   },
   "fab": {
     "tooltip": "Message Lena"

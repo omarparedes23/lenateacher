@@ -59,27 +59,17 @@ export default function Gallery() {
         </motion.div>
 
         {/* Asymmetric grid */}
-        <div
-          className="grid gap-4"
-          style={{
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gridTemplateRows: 'auto auto',
-            gridTemplateAreas: `
-              "cafe1 cafe1 cafe2"
-              "outdoor outdoor group"
-            `,
-          }}
-        >
-          <div style={{ gridArea: 'cafe1' }}>
+        <div className="gallery-grid">
+          <div className="md:[grid-area:cafe1]">
             <GalleryItem src="/images/club-cafe-1.jpg" label={loc.cafe1} className="h-56 md:h-72" delay={0} />
           </div>
-          <div style={{ gridArea: 'cafe2' }}>
+          <div className="md:[grid-area:cafe2]">
             <GalleryItem src="/images/club-cafe-2.jpg" label={loc.cafe2} className="h-56 md:h-72" delay={0.1} />
           </div>
-          <div style={{ gridArea: 'outdoor' }}>
+          <div className="md:[grid-area:outdoor]">
             <GalleryItem src="/images/club-outdoor.jpg" label={loc.outdoor} className="h-56 md:h-72" delay={0.2} />
           </div>
-          <div style={{ gridArea: 'group' }}>
+          <div className="md:[grid-area:group]">
             <GalleryItem src="/images/club-group.jpg" label={loc.group} className="h-56 md:h-72" delay={0.3} />
           </div>
         </div>

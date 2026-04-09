@@ -6,42 +6,29 @@ import { motion } from 'framer-motion';
 interface Session {
   day: string;
   time: string;
-  location: string | null;
+  location: string;
   level: 'basic' | 'intermediate' | 'advanced';
 }
 
-const englishClubSessions: Session[] = [
-  { day: 'Martes / Tuesday', time: '19:00', location: 'Московский', level: 'intermediate' },
-  { day: 'Sábado / Saturday', time: '11:30', location: 'Московский', level: 'basic' },
-  { day: 'Viernes / Friday', time: '11:30', location: 'Новаторская', level: 'intermediate' },
-];
-
-const russianClubSessions: Session[] = [
-  { day: 'Miércoles / Wednesday', time: '13:30', location: 'Лубянка', level: 'basic' },
-  { day: 'Viernes / Friday', time: '13:00', location: null, level: 'intermediate' },
-  { day: 'Domingo / Sunday', time: '14:00', location: 'Новаторская', level: 'advanced' },
-];
-
 const levelStyles: Record<Session['level'], string> = {
-  basic: 'bg-green-100 text-green-800',
-  intermediate: 'bg-amber-50 text-amber-700 border border-amber-300',
-  advanced: 'bg-rose-50 text-rose-800 border border-rose-300',
+  basic: 'bg-cream text-dark border border-gold/30',
+  intermediate: 'bg-gold/10 text-dark border border-gold/40',
+  advanced: 'bg-wine/10 text-wine border border-wine/30',
 };
 
-function SessionCard({ session, tbc }: { session: Session; tbc: string }) {
-  const levelLabel = session.level;
-
+function SessionCard({ session }: { session: Session }) {
   return (
     <motion.div
-      whileHover={{ scale: 1.02, borderColor: '#C9A84C' }}
-      className="border border-cream/20 rounded-xl p-5 flex items-center justify-between gap-4 bg-dark/50 transition-colors duration-200 cursor-default"
+      whileHover={{ scale: 1.02, borderColor: 'var(--color-gold)' }}
+      style={{ borderColor: 'rgba(250,246,239,0.2)' }}
+      className="border rounded-xl p-5 flex items-center justify-between gap-4 bg-dark/50 cursor-default"
     >
       <div className="flex flex-col gap-1">
         <p className="text-cream font-semibold text-sm">{session.day}</p>
-        <p className="text-muted text-sm">{session.time} · {session.location ?? tbc}</p>
+        <p className="text-muted text-sm">{session.time} · {session.location}</p>
       </div>
       <span className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap ${levelStyles[session.level]}`}>
-        {levelLabel}
+        {session.level}
       </span>
     </motion.div>
   );
@@ -50,18 +37,18 @@ function SessionCard({ session, tbc }: { session: Session; tbc: string }) {
 function ClubSection({
   title,
   sessions,
-  tbc,
   delay,
 }: {
   title: string;
   sessions: Session[];
-  tbc: string;
   delay: number;
 }) {
+  const xOffset = delay < 0.2 ? -40 : 40;
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: xOffset }}
+      whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay, ease: 'easeOut' }}
       viewport={{ once: true }}
       className="flex flex-col gap-4"
@@ -69,7 +56,7 @@ function ClubSection({
       <h3 className="font-serif text-2xl font-bold text-gold">{title}</h3>
       <div className="flex flex-col gap-3">
         {sessions.map((session, i) => (
-          <SessionCard key={i} session={session} tbc={tbc} />
+          <SessionCard key={i} session={session} />
         ))}
       </div>
     </motion.div>
@@ -78,10 +65,12 @@ function ClubSection({
 
 export default function Schedule() {
   const t = useTranslations('schedule');
+  const englishSessions = t.raw('sessions.english') as Session[];
+  const russianSessions = t.raw('sessions.russian') as Session[];
 
   return (
-    <section id="club" className="bg-dark py-20 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section id="club" className="grain-overlay relative bg-dark py-20 px-6">
+      <div className="relative z-10 max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -98,14 +87,12 @@ export default function Schedule() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <ClubSection
             title={t('englishClub')}
-            sessions={englishClubSessions}
-            tbc={t('tbc')}
+            sessions={englishSessions}
             delay={0.1}
           />
           <ClubSection
             title={t('russianClub')}
-            sessions={russianClubSessions}
-            tbc={t('tbc')}
+            sessions={russianSessions}
             delay={0.25}
           />
         </div>

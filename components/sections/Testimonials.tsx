@@ -24,8 +24,8 @@ export default function Testimonials() {
   const items = t.raw('items') as TestimonialItem[];
 
   return (
-    <section className="bg-dark py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="grain-overlay relative bg-dark py-20 px-6">
+      <div className="relative z-10 max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,24 +36,26 @@ export default function Testimonials() {
           {t('title')}
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8" style={{ perspective: 1000 }}>
           {items.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, rotateX: 15 }}
+              whileInView={{ opacity: 1, rotateX: 0 }}
               transition={{ duration: 0.6, delay: i * 0.15, ease: 'easeOut' }}
               viewport={{ once: true }}
               className="relative bg-cream rounded-2xl p-8"
             >
               {/* Decorative quote mark */}
-              <span className="absolute top-4 left-6 font-serif text-8xl text-gold/20 leading-none select-none">
+              <span className="absolute top-4 left-6 font-serif text-8xl text-gold/40 leading-none select-none">
                 &ldquo;
               </span>
 
-              <p className="relative z-10 text-dark/70 leading-relaxed mb-6 pt-6">
+              <p className="relative z-10 text-dark/70 leading-relaxed mb-4 pt-6">
                 {item.text}
               </p>
+
+              <p className="text-gold text-sm mb-4">★★★★★</p>
 
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-wine flex items-center justify-center text-cream font-bold text-sm flex-shrink-0">

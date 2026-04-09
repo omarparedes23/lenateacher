@@ -81,13 +81,13 @@ export default function WordOfDay({ locale }: WordOfDayProps) {
           {word && (
             <motion.div
               key={key}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
               className="flex flex-col items-center gap-4 overflow-hidden w-full"
             >
-              <span className="text-6xl">{word.emoji}</span>
+              <span className="text-4xl text-gold">✦</span>
               <p
                 className="font-serif text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold text-gold leading-none max-w-full overflow-hidden"
                 style={{ wordBreak: 'break-word' }}
@@ -116,7 +116,7 @@ export default function WordOfDay({ locale }: WordOfDayProps) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
           onClick={handleNewWord}
-          className="mt-10 border border-gold/50 text-gold px-8 py-3 rounded-full hover:bg-gold/10 transition-colors duration-200"
+          className="mt-10 border border-gold/40 text-gold hover:border-gold hover:bg-gold/10 transition-colors duration-200 px-8 py-3 rounded-full font-semibold inline-flex items-center justify-center"
         >
           {t('newWord')} ↻
         </motion.button>

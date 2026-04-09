@@ -84,10 +84,10 @@ export default function Footer() {
         {/* Closing */}
         <div className="border-t border-cream/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-center md:text-left">
-            <p className="font-serif text-2xl text-cream/30">{t('closing')}</p>
+            <p className="font-serif text-2xl text-cream/10">{t('closing')}</p>
             <p className="text-muted text-xs">{t('closingTranslation')}</p>
           </div>
-          <p className="text-cream/30 text-xs">{t('copyright')}</p>
+          <p className="text-cream/10 text-xs">{t('copyright')}</p>
         </div>
       </div>
     </footer>

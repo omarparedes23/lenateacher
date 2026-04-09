@@ -56,9 +56,9 @@ export default function StatsStrip() {
           {stats.map((stat, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.15, ease: 'easeOut' }}
+              initial={{ opacity: 0, scale: 0.85 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ type: 'spring', ease: [0.34, 1.56, 0.64, 1], delay: i * 0.15 }}
               viewport={{ once: true }}
             >
               <StatItem value={stat.value} suffix={stat.suffix} label={stat.label} />

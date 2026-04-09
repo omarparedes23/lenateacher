@@ -21,7 +21,7 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <Navbar locale={locale} />
-      <main className="overflow-x-hidden">
+      <main id="main" className="overflow-x-hidden">
         <Hero />
         <StatsStrip />
         <Services />
