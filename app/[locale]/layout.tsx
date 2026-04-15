@@ -1,4 +1,3 @@
-import { Playfair_Display, Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -9,18 +8,6 @@ import '../globals.css';
 
 const BASE_URL = 'https://profelena.ru';
 
-const playfair = Playfair_Display({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-playfair',
-  weight: ['400', '700', '900'],
-  display: 'swap',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
 
 type Props = {
   children: React.ReactNode;
@@ -42,6 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalPath = locale === 'es' ? BASE_URL + '/' : `${BASE_URL}/${locale}`;
   const ogLocale = locale === 'es' ? 'es_ES' : 'en_US';
   const alternateLocale = locale === 'es' ? 'en_US' : 'es_ES';
+  // OG image URL: default locale uses root path (no prefix), other locales use /{locale}/opengraph-image
+  const ogImageUrl = locale === 'es' ? `${BASE_URL}/opengraph-image` : `${BASE_URL}/${locale}/opengraph-image`;
 
   return {
     metadataBase: new URL(BASE_URL),
@@ -72,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'website',
       images: [
         {
-          url: '/opengraph-image',
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: t('ogImageAlt'),
@@ -83,7 +72,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: ['/opengraph-image'],
+      images: [ogImageUrl],
     },
   };
 }
@@ -269,12 +258,18 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} className="dark" style={{ colorScheme: 'dark' }}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${playfair.variable} ${inter.variable} font-sans bg-dark text-cream`}>
+      <body className="font-sans bg-dark text-cream">
         <a href="#main" className="skip-link">
           Skip to content
         </a>

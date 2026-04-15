@@ -8,6 +8,8 @@
   --color-cream: #FAF6EF;
   --color-dark: #1A1A1A;
   --color-muted: #8C7B6B;
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
 }
 
 html,

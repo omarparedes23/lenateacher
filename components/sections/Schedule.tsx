@@ -11,21 +11,21 @@ interface Session {
 }
 
 const levelStyles: Record<Session['level'], string> = {
-  basic: 'bg-cream text-dark border border-gold/30',
-  intermediate: 'bg-gold/10 text-dark border border-gold/40',
-  advanced: 'bg-wine/10 text-wine border border-wine/30',
+  basic: 'bg-cream/15 text-cream border border-cream/40',
+  intermediate: 'bg-gold/25 text-gold border border-gold/50',
+  advanced: 'bg-wine/30 text-rose-300 border border-wine/50',
 };
 
 function SessionCard({ session }: { session: Session }) {
   return (
     <motion.div
       whileHover={{ scale: 1.02, borderColor: 'var(--color-gold)' }}
-      style={{ borderColor: 'rgba(250,246,239,0.2)' }}
-      className="border rounded-xl p-5 flex items-center justify-between gap-4 bg-dark/50 cursor-default"
+      style={{ borderColor: 'rgba(201,168,76,0.25)' }}
+      className="border rounded-xl p-5 flex items-center justify-between gap-4 bg-white/[0.07] cursor-default"
     >
       <div className="flex flex-col gap-1">
         <p className="text-cream font-semibold text-sm">{session.day}</p>
-        <p className="text-muted text-sm">{session.time} · {session.location}</p>
+        <p className="text-cream/55 text-sm">{session.time} · {session.location}</p>
       </div>
       <span className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap ${levelStyles[session.level]}`}>
         {session.level}

@@ -1,17 +1,19 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
-
-export const alt = 'Profe Lena — Profesora nativa de ruso en Moscú';
-
-export const size = {
+const size = {
   width: 1200,
   height: 630,
 };
 
-export const contentType = 'image/png';
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const locale = searchParams.get('locale') || 'es';
 
-export default async function Image() {
+  const tagline =
+    locale === 'en'
+      ? 'Native Russian Teacher in Moscow'
+      : 'Profesora nativa de ruso en Moscú';
+
   let playfairFont: ArrayBuffer | null = null;
 
   try {
@@ -34,7 +36,6 @@ export default async function Image() {
           fontFamily: playfairFont ? 'Playfair Display' : 'serif',
         }}
       >
-        {/* Left section — 60% */}
         <div
           style={{
             display: 'flex',
@@ -44,7 +45,6 @@ export default async function Image() {
             padding: '72px 64px',
           }}
         >
-          {/* Gold horizontal rule */}
           <div
             style={{
               width: '80px',
@@ -53,8 +53,6 @@ export default async function Image() {
               marginBottom: '32px',
             }}
           />
-
-          {/* Main title */}
           <div
             style={{
               fontSize: '72px',
@@ -67,8 +65,6 @@ export default async function Image() {
           >
             PROFE LENA
           </div>
-
-          {/* Tagline */}
           <div
             style={{
               fontSize: '24px',
@@ -77,10 +73,8 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            Profesora nativa de ruso en Moscú
+            {tagline}
           </div>
-
-          {/* Bottom strip */}
           <div
             style={{
               display: 'flex',
@@ -116,8 +110,6 @@ export default async function Image() {
             </div>
           </div>
         </div>
-
-        {/* Right section — wine panel 40% */}
         <div
           style={{
             display: 'flex',
@@ -129,7 +121,6 @@ export default async function Image() {
             overflow: 'hidden',
           }}
         >
-          {/* Decorative РУССКИЙ text */}
           <div
             style={{
               fontSize: '80px',
