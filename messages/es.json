@@ -8,7 +8,7 @@
     "cta": "Unirse al club"
   },
   "hero": {
-    "title": "Lecciones en ruso",
+    "title": "Lecciones de ruso",
     "subtitle": "Clases de ruso en español e inglés",
     "ctaPrimary": "Escribir en Telegram",
     "ctaSecondary": "Ver servicios"
@@ -21,12 +21,28 @@
   "services": {
     "title": "¿Qué ofrezco?",
     "card1Title": "Clases personalizadas",
-    "card1Items": ["Clases", "Trabajo, estudios, vida en Moscú", "Para todos los niveles"],
+    "card1Items": [
+      "Clases",
+      "Trabajo, estudios, vida en Moscú",
+      "Para todos los niveles"
+    ],
     "card1Formats": "Formatos: 30 min · 1 hora · 1.5–2 horas (intensivo)",
     "card2Title": "Preparación RVP/VNG",
-    "card2Items": ["Curso RVP/VNG", "Preparación examen", "Aprendizaje estructurado", "Para todos los niveles"],
+    "card2Items": [
+      "Curso RVP/VNG",
+      "Preparación examen",
+      "Aprendizaje estructurado",
+      "Para todos los niveles"
+    ],
     "card3Title": "Live Language Parties",
-    "card3Items": ["Conversation clubs", "3 Language Learning Parties", "3 idiomas para practicar", "Grupos pequeños y dinámicos", "Presencial en Moscú", "Para todos los niveles"]
+    "card3Items": [
+      "Conversation clubs",
+      "3 Language Learning Parties",
+      "3 idiomas para practicar",
+      "Grupos pequeños y dinámicos",
+      "Presencial en Moscú",
+      "Para todos los niveles"
+    ]
   },
   "schedule": {
     "title": "Únete al club",
@@ -43,15 +59,50 @@
     "tbc": "Por confirmar",
     "sessions": {
       "english": [
-        { "day": "Martes", "time": "11:00", "location": "Московский", "level": "intermediate" },
-        { "day": "Martes", "time": "19:00", "location": "Московский", "level": "intermediate" },
-        { "day": "Sábado", "time": "11:30", "location": "Московский", "level": "basic" },
-        { "day": "Viernes", "time": "11:30", "location": "Новаторская", "level": "intermediate" }
+        {
+          "day": "Martes",
+          "time": "11:00",
+          "location": "Московский",
+          "level": "intermediate"
+        },
+        {
+          "day": "Martes",
+          "time": "19:00",
+          "location": "Московский",
+          "level": "intermediate"
+        },
+        {
+          "day": "Sábado",
+          "time": "11:30",
+          "location": "Московский",
+          "level": "basic"
+        },
+        {
+          "day": "Viernes",
+          "time": "11:30",
+          "location": "Новаторская",
+          "level": "intermediate"
+        }
       ],
       "russian": [
-        { "day": "Miércoles", "time": "13:30", "location": "Лубянка", "level": "basic" },
-        { "day": "Viernes", "time": "13:00", "location": "Новаторская", "level": "intermediate" },
-        { "day": "Domingo", "time": "14:00", "location": "Café Metod Freida", "level": "advanced" }
+        {
+          "day": "Miércoles",
+          "time": "13:30",
+          "location": "Лубянка",
+          "level": "basic"
+        },
+        {
+          "day": "Viernes",
+          "time": "13:00",
+          "location": "Новаторская",
+          "level": "intermediate"
+        },
+        {
+          "day": "Domingo",
+          "time": "14:00",
+          "location": "Café Metod Freida",
+          "level": "advanced"
+        }
       ]
     }
   },
@@ -75,7 +126,11 @@
   "about": {
     "title": "Sobre Lena",
     "body": "Soy Lena, profesora nativa de ruso de Moscú. Llevo más de 6 años ayudando a extranjeros de todo el mundo a descubrir el ruso — no solo como idioma, sino como una llave a una cultura increíble. Enseño en español e inglés, con paciencia, humor y mucho café. ☕ Soy certificada por el Centro Internacional de Ruso y creadora de The Клуб, una comunidad viva de más de 80 personas que se reúnen en Moscú para practicar idiomas y hacer amigos reales.",
-    "chips": ["Certificada 🏅", "Moscú 📍", "ES · EN · RU 🌐"],
+    "chips": [
+      "Certificada 🏅",
+      "Moscú 📍",
+      "ES · EN · RU 🌐"
+    ],
     "cta": "Escríbeme en Telegram"
   },
   "testimonials": {
@@ -109,15 +164,28 @@
     "card1Title": "Clase 30 min",
     "card1Price": "",
     "card1Ideal": "Ideal para: viajeros y personas ocupadas",
-    "card1Features": ["30 min de clase enfocada", "Conversación o gramática", "Online o presencial"],
+    "card1Features": [
+      "30 min de clase enfocada",
+      "Conversación o gramática",
+      "Online o presencial"
+    ],
     "card2Title": "Clase 1 hora",
     "card2Price": "",
     "card2Ideal": "Ideal para: aprendizaje estructurado",
-    "card2Features": ["Clase completa con estructura", "Tarea y seguimiento", "Online o presencial", "Mejor relación calidad-precio"],
+    "card2Features": [
+      "Clase completa con estructura",
+      "Tarea y seguimiento",
+      "Online o presencial",
+      "Mejor relación calidad-precio"
+    ],
     "card3Title": "Live Language Party",
     "card3Price": "",
     "card3Ideal": "Ideal para: práctica oral y nuevos amigos",
-    "card3Features": ["Grupo pequeño y dinámico", "Práctica de conversación real", "Nuevos amigos en Moscú"]
+    "card3Features": [
+      "Grupo pequeño y dinámico",
+      "Práctica de conversación real",
+      "Nuevos amigos en Moscú"
+    ]
   },
   "fab": {
     "tooltip": "Escribir a Lena"
@@ -131,7 +199,25 @@
     "copyright": "© 2025 Lena"
   },
   "meta": {
-    "title": "Lena · Profesora de Ruso en Moscú | Lena",
-    "description": "Clases de ruso para hispanohablantes y angloparlantes en Moscú. Online y presencial. Certificada por el Centro Internacional de Ruso."
+    "title": "Profe Lena · Profesora de Ruso en Moscú",
+    "description": "Clases de ruso con profesora nativa de Moscú. Online y presencial para hispanohablantes. Preparación RVP/VNG. Certificada por el Centro Internacional de Ruso.",
+    "keywords": "clases de ruso Moscú, profesora nativa de ruso, aprender ruso en español, ruso online, preparación RVP VNG, Language Party Moscú, club de ruso Moscú",
+    "ogImageAlt": "Profe Lena — Profesora nativa de ruso en Moscú"
+  },
+  "schema": {
+    "jobTitle": "Profesora nativa de ruso",
+    "serviceDescription": "Clases de ruso para hispanohablantes y angloparlantes. Online y presencial en Moscú."
+  },
+  "faq": {
+    "q1": "¿Dónde puedo aprender ruso en Moscú en español?",
+    "a1": "Lena es profesora nativa de ruso en Moscú que imparte clases en español e inglés, tanto online como presenciales. Tiene más de 6 años de experiencia y está certificada por el Centro Internacional de Ruso.",
+    "q2": "¿Cómo preparar el examen de ruso para el RVP o VNG?",
+    "a2": "Lena ofrece un curso estructurado de preparación para el examen de idioma ruso requerido para la residencia temporal (RVP) y el permiso de residencia permanente (VNG) en Rusia. Clases en español e inglés para todos los niveles.",
+    "q3": "¿Cuánto cuesta una clase de ruso con un profesor nativo en Moscú?",
+    "a3": "Lena ofrece clases de 30 minutos, 1 hora y formato intensivo de 1.5–2 horas, además de Language Parties grupales. Escríbele en Telegram (@UlyaLena) para precios actualizados y un plan personalizado.",
+    "q4": "¿Puedo aprender ruso desde cero con Lena?",
+    "a4": "Sí. Lena enseña desde nivel principiante absoluto hasta avanzado (A1–C1) en español e inglés. Sus clases son personalizadas y adaptadas al ritmo de cada alumno.",
+    "q5": "¿Qué es The Клуб?",
+    "a5": "The Клуб es una comunidad de intercambio de idiomas en Moscú con más de 80 miembros activos. Se reúnen semanalmente en distintos lugares de Moscú para practicar ruso, español e inglés en grupos pequeños y dinámicos."
   }
 }

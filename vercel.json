@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "lenateacher.vercel.app" }],
+      "destination": "https://profelena.ru/$1",
+      "permanent": true
+    }
+  ]
+}
