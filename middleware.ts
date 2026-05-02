@@ -8,7 +8,7 @@ const intlMiddleware = createIntlMiddleware(routing);
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Handle Supabase session refresh for /admin routes
+  // Handle auth for /admin routes
   if (pathname.startsWith('/admin')) {
     const response = NextResponse.next({ request });
 
@@ -35,8 +35,18 @@ export async function middleware(request: NextRequest) {
       }
     );
 
-    // Refresh session — writes updated tokens to cookies if needed
-    await supabase.auth.getUser();
+    const { data: { user } } = await supabase.auth.getUser();
+    const isLoginPage = pathname === '/admin/login';
+
+    // Not authenticated → send to login (except if already there)
+    if (!user && !isLoginPage) {
+      return NextResponse.redirect(new URL('/admin/login', request.url));
+    }
+
+    // Authenticated → don't let them visit login again
+    if (user && isLoginPage) {
+      return NextResponse.redirect(new URL('/admin', request.url));
+    }
 
     return response;
   }

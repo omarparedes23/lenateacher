@@ -1,21 +1,10 @@
-import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
 import '../globals.css';
 
-export default async function AdminLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect('/admin/login');
-  }
-
   return (
     <html lang="es" className="dark" style={{ colorScheme: 'dark' }}>
       <head>
