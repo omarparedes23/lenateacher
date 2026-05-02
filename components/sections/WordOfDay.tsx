@@ -3,45 +3,23 @@
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-
-interface Word {
-  cyrillic: string;
-  phonetic: string;
-  translation_es: string;
-  translation_en: string;
-  emoji: string;
-}
-
-const words: Word[] = [
-  { cyrillic: 'привет', phonetic: 'pri-VET', translation_es: 'hola', translation_en: 'hello', emoji: '👋' },
-  { cyrillic: 'спасибо', phonetic: 'spa-SI-ba', translation_es: 'gracias', translation_en: 'thank you', emoji: '🙏' },
-  { cyrillic: 'пожалуйста', phonetic: 'pa-ZHAL-sta', translation_es: 'por favor', translation_en: 'please', emoji: '✨' },
-  { cyrillic: 'красивый', phonetic: 'kra-SI-viy', translation_es: 'hermoso', translation_en: 'beautiful', emoji: '😍' },
-  { cyrillic: 'душа', phonetic: 'du-SHA', translation_es: 'alma', translation_en: 'soul', emoji: '💫' },
-  { cyrillic: 'судьба', phonetic: 'sud-BA', translation_es: 'destino', translation_en: 'destiny', emoji: '🌟' },
-  { cyrillic: 'белый', phonetic: 'BE-liy', translation_es: 'blanco', translation_en: 'white', emoji: '🤍' },
-  { cyrillic: 'зима', phonetic: 'zi-MA', translation_es: 'invierno', translation_en: 'winter', emoji: '❄️' },
-  { cyrillic: 'любовь', phonetic: 'lyu-BOV', translation_es: 'amor', translation_en: 'love', emoji: '❤️' },
-  { cyrillic: 'друг', phonetic: 'DRUK', translation_es: 'amigo', translation_en: 'friend', emoji: '🤝' },
-  { cyrillic: 'Москва', phonetic: 'Mosk-VA', translation_es: 'Moscú', translation_en: 'Moscow', emoji: '🏛️' },
-  { cyrillic: 'улица', phonetic: 'U-li-tsa', translation_es: 'calle', translation_en: 'street', emoji: '🚶' },
-  { cyrillic: 'вкусно', phonetic: 'VKUS-na', translation_es: 'delicioso', translation_en: 'delicious', emoji: '😋' },
-  { cyrillic: 'интересно', phonetic: 'in-te-RES-na', translation_es: 'interesante', translation_en: 'interesting', emoji: '🤔' },
-  { cyrillic: 'конечно', phonetic: 'ka-NESH-na', translation_es: 'por supuesto', translation_en: 'of course', emoji: '👌' },
-];
+import type { WordOfDay as WordOfDayType } from '@/types/cms';
 
 interface WordOfDayProps {
+  words: WordOfDayType[];
   locale: string;
 }
 
-export default function WordOfDay({ locale }: WordOfDayProps) {
+export default function WordOfDay({ words, locale }: WordOfDayProps) {
   const t = useTranslations('word');
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const [key, setKey] = useState(0);
 
   useEffect(() => {
-    setCurrentIndex(Math.floor(Math.random() * words.length));
-  }, []);
+    if (words.length > 0) {
+      setCurrentIndex(Math.floor(Math.random() * words.length));
+    }
+  }, [words]);
 
   const handleNewWord = () => {
     setCurrentIndex((prev) => {

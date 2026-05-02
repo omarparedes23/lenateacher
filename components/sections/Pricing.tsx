@@ -2,33 +2,74 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import type { PageSection } from '@/types/cms';
 
-export default function Pricing() {
+interface PricingProps {
+  sections: PageSection[];
+  locale: string;
+}
+
+interface PricingCard {
+  title: string;
+  price: string;
+  ideal: string;
+  features: string[];
+  popular: boolean;
+}
+
+interface PricingBody {
+  subtitle: string;
+  cards: PricingCard[];
+}
+
+export default function Pricing({ sections, locale }: PricingProps) {
   const t = useTranslations('pricing');
 
-  const cards = [
-    {
-      title: t('card1Title'),
-      price: t('card1Price'),
-      ideal: t('card1Ideal'),
-      features: t.raw('card1Features') as string[],
-      popular: false,
-    },
-    {
-      title: t('card2Title'),
-      price: t('card2Price'),
-      ideal: t('card2Ideal'),
-      features: t.raw('card2Features') as string[],
-      popular: true,
-    },
-    {
-      title: t('card3Title'),
-      price: t('card3Price'),
-      ideal: t('card3Ideal'),
-      features: t.raw('card3Features') as string[],
-      popular: false,
-    },
-  ];
+  const pricingSection = sections.find((s) => s.section_key === 'pricing');
+  const title = pricingSection
+    ? locale === 'en'
+      ? pricingSection.title_en
+      : pricingSection.title_es
+    : t('title');
+
+  let subtitle: string;
+  let cards: PricingCard[];
+
+  try {
+    const body = pricingSection
+      ? locale === 'en'
+        ? pricingSection.body_en
+        : pricingSection.body_es
+      : '';
+    const parsed: PricingBody = body ? JSON.parse(body) : null;
+    subtitle = parsed?.subtitle ?? t('subtitle');
+    cards = parsed?.cards ?? [];
+  } catch {
+    subtitle = t('subtitle');
+    cards = [
+      {
+        title: t('card1Title'),
+        price: t('card1Price'),
+        ideal: t('card1Ideal'),
+        features: t.raw('card1Features') as string[],
+        popular: false,
+      },
+      {
+        title: t('card2Title'),
+        price: t('card2Price'),
+        ideal: t('card2Ideal'),
+        features: t.raw('card2Features') as string[],
+        popular: true,
+      },
+      {
+        title: t('card3Title'),
+        price: t('card3Price'),
+        ideal: t('card3Ideal'),
+        features: t.raw('card3Features') as string[],
+        popular: false,
+      },
+    ];
+  }
 
   return (
     <section id="pricing" className="bg-cream py-20 px-6">
@@ -41,9 +82,9 @@ export default function Pricing() {
           className="text-center mb-14"
         >
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-dark mb-3">
-            {t('title')}
+            {title}
           </h2>
-          <p className="text-muted">{t('subtitle')}</p>
+          <p className="text-muted">{subtitle}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">

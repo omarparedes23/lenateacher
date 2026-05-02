@@ -2,6 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import type { PageSection } from '@/types/cms';
+
+interface ServicesProps {
+  sections: PageSection[];
+  locale: string;
+}
 
 function BookIcon() {
   return (
@@ -35,29 +41,57 @@ function PeopleIcon() {
   );
 }
 
-export default function Services() {
+interface ServiceCard {
+  title: string;
+  items: string[];
+  footer: string | null;
+}
+
+interface ServicesBody {
+  cards: ServiceCard[];
+}
+
+export default function Services({ sections, locale }: ServicesProps) {
   const t = useTranslations('services');
 
-  const cards = [
-    {
-      icon: <BookIcon />,
-      title: t('card1Title'),
-      items: t.raw('card1Items') as string[],
-      footer: t('card1Formats'),
-    },
-    {
-      icon: <DocumentIcon />,
-      title: t('card2Title'),
-      items: t.raw('card2Items') as string[],
-      footer: null,
-    },
-    {
-      icon: <PeopleIcon />,
-      title: t('card3Title'),
-      items: t.raw('card3Items') as string[],
-      footer: null,
-    },
-  ];
+  const servicesSection = sections.find((s) => s.section_key === 'services');
+  const title = servicesSection
+    ? locale === 'en'
+      ? servicesSection.title_en
+      : servicesSection.title_es
+    : t('title');
+
+  let cards: ServiceCard[];
+  try {
+    const body = servicesSection
+      ? locale === 'en'
+        ? servicesSection.body_en
+        : servicesSection.body_es
+      : '';
+    const parsed: ServicesBody = body ? JSON.parse(body) : null;
+    cards = parsed?.cards ?? [];
+  } catch {
+    // Fallback to messages if JSON parse fails
+    cards = [
+      {
+        title: t('card1Title'),
+        items: t.raw('card1Items') as string[],
+        footer: t('card1Formats'),
+      },
+      {
+        title: t('card2Title'),
+        items: t.raw('card2Items') as string[],
+        footer: null,
+      },
+      {
+        title: t('card3Title'),
+        items: t.raw('card3Items') as string[],
+        footer: null,
+      },
+    ];
+  }
+
+  const icons = [<BookIcon key="book" />, <DocumentIcon key="doc" />, <PeopleIcon key="people" />];
 
   return (
     <section id="services" className="bg-cream py-20 px-6">
@@ -69,7 +103,7 @@ export default function Services() {
           viewport={{ once: true }}
           className="font-serif text-4xl md:text-5xl font-bold text-dark text-center mb-14"
         >
-          {t('title')}
+          {title}
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -83,7 +117,7 @@ export default function Services() {
               whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
               className="bg-white border border-gold/40 shadow-md rounded-2xl p-8 flex flex-col gap-4 cursor-default transition-shadow duration-300"
             >
-              <div className="text-wine">{card.icon}</div>
+              <div className="text-wine">{icons[i]}</div>
               <h3 className="font-serif text-2xl font-bold text-dark">{card.title}</h3>
               <ul className="flex flex-col gap-2">
                 {card.items.map((item, j) => (

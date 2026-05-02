@@ -3,10 +3,28 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import type { PageSection } from '@/types/cms';
 
-export default function About() {
+interface AboutProps {
+  sections: PageSection[];
+  locale: string;
+}
+
+export default function About({ sections, locale }: AboutProps) {
   const t = useTranslations('about');
   const chips = t.raw('chips') as string[];
+
+  const aboutSection = sections.find((s) => s.section_key === 'about');
+  const title = aboutSection
+    ? locale === 'en'
+      ? aboutSection.title_en
+      : aboutSection.title_es
+    : t('title');
+  const body = aboutSection
+    ? locale === 'en'
+      ? aboutSection.body_en
+      : aboutSection.body_es
+    : t('body');
 
   return (
     <section id="about" className="bg-cream py-20 px-6">
@@ -43,10 +61,10 @@ export default function About() {
             className="flex flex-col gap-6"
           >
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-dark">
-              {t('title')}
+              {title}
             </h2>
             <p className="text-dark/70 leading-relaxed text-base md:text-lg">
-              {t('body')}
+              {body}
             </p>
             <div className="flex flex-wrap gap-2">
               {chips.map((chip, i) => (

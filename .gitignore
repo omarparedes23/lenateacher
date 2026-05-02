@@ -2,5 +2,10 @@ node_modules/
 .next/
 .env
 .env.local
-npm-debug.log
+.env*.local
+*.log
 .vercel
+*.md
+!README.md
+.claude/
+.atl/

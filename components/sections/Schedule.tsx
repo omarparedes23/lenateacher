@@ -2,21 +2,27 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import type { ScheduleSession } from '@/types/cms';
 
-interface Session {
-  day: string;
-  time: string;
-  location: string;
-  level: 'basic' | 'intermediate' | 'advanced';
+interface ScheduleProps {
+  schedule: ScheduleSession[];
+  locale: string;
 }
 
-const levelStyles: Record<Session['level'], string> = {
+const levelStyles: Record<string, string> = {
   basic: 'bg-cream/15 text-cream border border-cream/40',
   intermediate: 'bg-gold/25 text-gold border border-gold/50',
   advanced: 'bg-wine/30 text-rose-300 border border-wine/50',
 };
 
-function SessionCard({ session }: { session: Session }) {
+interface SessionCardProps {
+  session: ScheduleSession;
+  locale: string;
+}
+
+function SessionCard({ session, locale }: SessionCardProps) {
+  const day = locale === 'en' ? session.day_en : session.day_es;
+
   return (
     <motion.div
       whileHover={{ scale: 1.02, borderColor: 'var(--color-gold)' }}
@@ -24,10 +30,10 @@ function SessionCard({ session }: { session: Session }) {
       className="border rounded-xl p-5 flex items-center justify-between gap-4 bg-white/[0.07] cursor-default"
     >
       <div className="flex flex-col gap-1">
-        <p className="text-cream font-semibold text-sm">{session.day}</p>
+        <p className="text-cream font-semibold text-sm">{day}</p>
         <p className="text-cream/55 text-sm">{session.time} · {session.location}</p>
       </div>
-      <span className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap ${levelStyles[session.level]}`}>
+      <span className={`text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap ${levelStyles[session.level] || levelStyles.basic}`}>
         {session.level}
       </span>
     </motion.div>
@@ -38,10 +44,12 @@ function ClubSection({
   title,
   sessions,
   delay,
+  locale,
 }: {
   title: string;
-  sessions: Session[];
+  sessions: ScheduleSession[];
   delay: number;
+  locale: string;
 }) {
   const xOffset = delay < 0.2 ? -40 : 40;
 
@@ -55,18 +63,19 @@ function ClubSection({
     >
       <h3 className="font-serif text-2xl font-bold text-gold">{title}</h3>
       <div className="flex flex-col gap-3">
-        {sessions.map((session, i) => (
-          <SessionCard key={i} session={session} />
+        {sessions.map((session) => (
+          <SessionCard key={session.id} session={session} locale={locale} />
         ))}
       </div>
     </motion.div>
   );
 }
 
-export default function Schedule() {
+export default function Schedule({ schedule, locale }: ScheduleProps) {
   const t = useTranslations('schedule');
-  const englishSessions = t.raw('sessions.english') as Session[];
-  const russianSessions = t.raw('sessions.russian') as Session[];
+
+  const englishSessions = schedule.filter((s) => s.club === 'english');
+  const russianSessions = schedule.filter((s) => s.club === 'russian');
 
   return (
     <section id="club" className="grain-overlay relative bg-dark py-20 px-6">
@@ -89,11 +98,13 @@ export default function Schedule() {
             title={t('englishClub')}
             sessions={englishSessions}
             delay={0.1}
+            locale={locale}
           />
           <ClubSection
             title={t('russianClub')}
             sessions={russianSessions}
             delay={0.25}
+            locale={locale}
           />
         </div>
 

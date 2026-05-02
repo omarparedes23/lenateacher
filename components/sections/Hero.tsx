@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import Image from 'next/image';
+import type { PageSection } from '@/types/cms';
 
 const CYRILLIC_LETTERS = ['Р', 'У', 'С', 'С', 'К', 'И', 'Й'];
 
@@ -19,12 +20,29 @@ const letterPositions = [
 
 const letterSpeeds = [0.1, 0.2, 0.15, 0.25, 0.12, 0.18, 0.22];
 
-export default function Hero() {
+interface HeroProps {
+  sections: PageSection[];
+  locale: string;
+}
+
+export default function Hero({ sections, locale }: HeroProps) {
   const t = useTranslations('hero');
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
 
-  const titleLines = t('title').split('\n');
+  const heroSection = sections.find((s) => s.section_key === 'hero');
+  const title = heroSection
+    ? locale === 'en'
+      ? heroSection.title_en
+      : heroSection.title_es
+    : t('title');
+  const body = heroSection
+    ? locale === 'en'
+      ? heroSection.body_en
+      : heroSection.body_es
+    : t('subtitle');
+
+  const titleLines = title.split('\n');
 
   return (
     <section
@@ -80,7 +98,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           className="text-muted text-lg md:text-xl max-w-xl mb-10"
         >
-          {t('subtitle')}
+          {body}
         </motion.p>
 
         <motion.div
